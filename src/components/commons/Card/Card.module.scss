@@ -1,0 +1,23 @@
+@import "../../../styles/variables";
+
+.cardContainer {
+	background-color: $White;
+	width: 768px;
+	height: 80px;
+	box-shadow: $CardShadow;
+	border-radius: 12px;
+	padding: 12px;
+	display: flex;
+	align-items: center;
+}
+
+.imageWrap {
+	background-color: $BaseGrey;
+	border-radius: 50%;
+	height: 50px;
+	width: 50px;
+	background-image: url("../../../assets/images/cat.png");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+}
