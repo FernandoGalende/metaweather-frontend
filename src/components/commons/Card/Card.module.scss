@@ -11,7 +11,7 @@
 	padding: 12px;
 	display: flex;
 	align-items: center;
-	transition: height 0.5s;
+	transition: height 0.1s;
 }
 
 .cardContainer:hover {
@@ -109,14 +109,37 @@
 		color: $PurplePrimary;
 	}
 }
+@keyframes expandWidth {
+	0% {
+		width: 0;
+	}
+	100% {
+		width: calc(100% - 75%);
+	}
+}
 
 .progressBar {
-	width: calc(100% - 75%);
-	height: 32px;
-	border-radius: 8px;
-	background-color: $PurplePrimary;
-	z-index: 1;
+	width: 100%;
+	height: 100%;
 	position: absolute;
+	box-sizing: border-box;
+	display: flex;
+	align-items: center;
+	margin: 0;
+	overflow: hidden;
+	span {
+		height: 32px;
+		border-radius: 8px;
+		animation-name: expandWidth;
+		animation-duration: 2s;
+		animation-iteration-count: 1;
+		background-color: $PurplePrimary;
+		z-index: 1;
+		position: absolute;
+		margin: 0;
+		overflow: hidden;
+		width: calc(100% - 75%);
+	}
 }
 
 .progressButton {

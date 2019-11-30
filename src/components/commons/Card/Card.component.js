@@ -28,7 +28,9 @@ const Card = () => (
       <div className={style.progressBarWrap}>
         <span>02</span>
         <span>25%</span>
-        <div className={style.progressBar} />
+        <div className={style.progressBar}>
+          <span />
+        </div>
       </div>
       <div className={style.progressButton}>
         <AddIcon fill={'#E8BC00'} />
