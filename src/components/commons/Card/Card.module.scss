@@ -1,6 +1,8 @@
 @import "../../../styles/variables";
+@import '../../../styles/fonts.scss';
 
 .cardContainer {
+	box-sizing: border-box;
 	background-color: $White;
 	width: 768px;
 	height: 80px;
@@ -9,15 +11,167 @@
 	padding: 12px;
 	display: flex;
 	align-items: center;
+	transition: height 0.5s;
+}
+
+.cardContainer:hover {
+	height: 96px;
 }
 
 .imageWrap {
-	background-color: $BaseGrey;
 	border-radius: 50%;
 	height: 50px;
 	width: 50px;
-	background-image: url("../../../assets/images/cat.png");
+	background-image: url("../../../assets/images/chusqui.png");
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
+	box-sizing: border-box;
+	border: 4px solid $BaseGrey;
+}
+
+.textWrap {
+	font-family: 'averta';
+	padding-left: 12px;
+	display: flex;
+	flex-direction: column;
+}
+
+.mainText {
+	color: $MainGrey;
+	font-size: 16px;
+	margin: 0 auto;
+	letter-spacing: -0.4px;
+	text-align: left;
+	line-height: 21px;
+}
+
+.descriptionText {
+	color: $SecondaryText;
+	font-size: 12px;
+	letter-spacing: -0.4px;
+	line-height: 21px;
+}
+
+.dateText {
+	font-size: 12px;
+	letter-spacing: -0.4px;
+	line-height: 21px;
+	padding-left: 12px;
+}
+
+.hourText {
+	color: $SecondaryText;
+	font-size: 10px;
+	font-weight: 600;
+	line-height: 21px;
+	padding-left: 12px;
+}
+
+.progressBarContainer {
+	width: 293px;
+	height: 56px;
+	border-radius: 18px;
+	border: 0.5px solid $BaseGrey;
+	margin-left: 36px;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	padding: 12px;
+	box-sizing: border-box;
+	position: relative;
+	box-sizing: border-box;
+}
+
+.progressBarWrap {
+	font-family: 'averta';
+	width: 189px;
+	height: 32px;
+	border-radius: 8px;
+	border: 0.5px solid $PurplePrimary;
+	background-color: $PurpleSecondary;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	box-sizing: border-box;
+	position: relative;
+	margin-left: 8px;
+	span {
+		font-size: 10px;
+		z-index: 999;
+		margin: 8px;
+	}
+	:nth-child(1) {
+		color: $White;
+		font-weight: 600;
+	}
+	:nth-child(2) {
+		color: $PurplePrimary;
+	}
+}
+
+.progressBar {
+	width: calc(100% - 75%);
+	height: 32px;
+	border-radius: 8px;
+	background-color: $PurplePrimary;
+	z-index: 1;
+	position: absolute;
+}
+
+.progressButton {
+	width: 32px;
+	height: 32px;
+	border-radius: 8px;
+	border: 1px dashed $BaseGrey;
+	margin-left: 8px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.progressButtonComplete {
+	width: 32px;
+	height: 32px;
+	border-radius: 8px;
+	background-color: $BluePrimary;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	span {
+		font-size: 10px;
+		color: $White;
+		font-family: 'averta';
+		font-weight: 600;
+	}
+}
+
+.iconsContainer {
+	display: flex;
+	align-items: center;
+	margin-left: 32px;
+}
+
+.iconWrap {
+	border-radius: calc(100% - 50%);
+	width: 32px;
+	height: 32px;
+	box-sizing: border-box;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: background-color 500ms;
+	path {
+		transition: fill 400ms;
+	}
+}
+
+.iconWrap:hover {
+	background-color: $MainGrey;
+	path {
+		fill: $White;
+	}
 }
