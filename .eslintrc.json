@@ -23,7 +23,7 @@
 	"parser": "babel-eslint",
 	"rules": {
 		"arrow-parens": [
-			"error",
+			"off",
 			"as-needed",
 			{
 				"requireForBlockBody": false
@@ -46,9 +46,9 @@
 		"function-paren-newline": "warn",
 		"implicit-arrow-linebreak": "warn",
 		"import/no-cycle": "error",
-		"import/prefer-default-export": "warn",
+		"import/prefer-default-export": "off",
 		"indent": [
-			"error",
+			"off",
 			2,
 			{
 				"SwitchCase": 1
@@ -76,7 +76,7 @@
 				"props": false
 			}
 		],
-		"no-tabs": "warn",
+		"no-tabs": "off",
 		"no-undef": "error",
 		"no-underscore-dangle": "off",
 		"no-unused-vars": "error",
@@ -89,7 +89,7 @@
 		],
 		"object-curly-newline": "off",
 		"object-curly-spacing": [
-			"error",
+			"off",
 			"always"
 		],
 		"prefer-template": "error",

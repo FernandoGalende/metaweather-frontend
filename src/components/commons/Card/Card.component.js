@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import AddIcon from '../../../assets/Icons/add';
 
@@ -52,7 +51,5 @@ const Card = () => (
     </div>
   </div>
 );
-
-Card.propTypes = {};
 
 export default Card;

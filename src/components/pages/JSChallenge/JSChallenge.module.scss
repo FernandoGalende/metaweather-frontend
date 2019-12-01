@@ -1,0 +1,15 @@
+.formContainter {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.resultContainer {
+	width: 100%;
+	display: flex;
+	margin: 8px;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}

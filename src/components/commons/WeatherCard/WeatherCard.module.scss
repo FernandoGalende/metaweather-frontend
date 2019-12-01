@@ -1,0 +1,29 @@
+@import "../../../styles/variables";
+@import '../../../styles/fonts.scss';
+
+.cardContainer {
+	box-sizing: border-box;
+	background-color: $White;
+	width: 768px;
+	height: 80px;
+	box-shadow: $CardShadow;
+	border-radius: 12px;
+	padding: 12px;
+	display: flex;
+	align-items: center;
+	transition: height 0.1s;
+	margin: 8px;
+	justify-content: space-around;
+	position: relative;
+	button {
+		position: absolute;
+		z-index: 999;
+		margin: 10px;
+		top: 0;
+		right: 0;
+	}
+}
+
+.cardContainer:hover {
+	height: 96px;
+}
