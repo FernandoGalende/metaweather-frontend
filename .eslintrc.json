@@ -81,7 +81,7 @@
 		"no-underscore-dangle": "off",
 		"no-unused-vars": "error",
 		"no-use-before-define": [
-			"error",
+			"off",
 			{
 				"functions": false,
 				"classes": false
@@ -135,7 +135,6 @@
 			}
 		],
 		"react-hooks/rules-of-hooks": "error",
-		"react-hooks/exhaustive-deps": "warn",
 		"semi": [
 			"error",
 			"always"

@@ -1,20 +1,31 @@
 import React, {useState, useEffect} from 'react';
 import PropTypes from 'prop-types';
+import LoadingBar from 'react-redux-loading-bar';
 import Dropdown from '../../commons/Dropdown/Dropdown.component';
 import WeatherCard from '../../commons/WeatherCard/WeatherCard.component';
 import style from './JSChallenge.module.scss';
+
+const sortByItems = [{value: 'ascending'}, {value: 'descending'}, {value: 'none'}];
 
 const JSChallenge = ({getWeather, cities}) => {
 	const [city, setCity] = useState();
 	const [myCities, setMyCities] = useState([...cities]);
 	const [mainInput, setMainInput] = useState('');
 	const [average, setAverage] = useState(0);
+	const [weathers, setWeathers] = useState([{value: 'all'}]);
 
 	useEffect(
 		() => {
+			const setWeathersList = (cityList) => {
+				const weatherList = cityList.reduce((total, item) => [...total, {value: item.weather}], [
+					{value: 'all'},
+				]);
+				setWeathers(makeUniqueList(weatherList));
+			};
 			if (cities.length > 0) {
 				setAverageTemperature(cities);
 			}
+			setWeathersList(cities);
 			setMyCities(cities);
 		},
 		[average, cities],
@@ -22,6 +33,21 @@ const JSChallenge = ({getWeather, cities}) => {
 
 	const setAverageTemperature = (cityList) => {
 		setAverage(cityList.reduce((total, item) => total + item.temperature, 0) / cityList.length);
+	};
+
+	const makeUniqueList = (list) => {
+		const result = [];
+		const map = new Map();
+		// eslint-disable-next-line no-restricted-syntax
+		for (const item of list) {
+			if (!map.has(item.value)) {
+				map.set(item.value, true);
+				result.push({
+					value: item.value,
+				});
+			}
+		}
+		return result;
 	};
 
 	const onClickSearch = (event) => {
@@ -40,6 +66,15 @@ const JSChallenge = ({getWeather, cities}) => {
 		}
 	};
 
+	const filterWeather = (selected) => {
+		const filterCities = [...cities];
+		if (selected === 'all') {
+			setMyCities(filterCities);
+		} else {
+			setMyCities(filterCities.filter((e) => e.weather === selected));
+		}
+	};
+
 	return (
 		<div>
 			<div className={style.containter}>
@@ -55,7 +90,11 @@ const JSChallenge = ({getWeather, cities}) => {
 				</div>
 				<div className={style.orderByBlock}>
 					<span>Order temp by: </span>
-					<Dropdown defaultSelected={'none'} itemSelected={sortTemperture} />
+					<Dropdown defaultSelected={'none'} items={sortByItems} itemSelected={sortTemperture} />
+				</div>
+				<div className={style.orderByBlock}>
+					<span>Select Weather: </span>
+					<Dropdown defaultSelected={'all'} items={weathers} itemSelected={filterWeather} />
 				</div>
 				<div className={style.averageByBlock}>
 					<span>
@@ -63,6 +102,7 @@ const JSChallenge = ({getWeather, cities}) => {
 					</span>
 				</div>
 			</div>
+			<LoadingBar className={style.loadingBar} />
 			<div className={style.resultContainer}>
 				{myCities
 					&& myCities.map((element) => (

@@ -2,9 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import style from './Dropdown.module.scss';
 
-const items = [{value: 'ascending'}, {value: 'descending'}, {value: 'none'}];
-
-const Dropdown = ({defaultSelected, itemSelected}) => (
+const Dropdown = ({items, defaultSelected, itemSelected}) => (
 	<div>
 		<select
 			className={style.dropdown}
@@ -32,12 +30,14 @@ const Dropdown = ({defaultSelected, itemSelected}) => (
 
 Dropdown.defaultProps = {
 	cidefaultSelectedties: [],
+	items: [],
 	itemSelected: () => 0,
 };
 
 Dropdown.propTypes = {
 	defaultSelected: PropTypes.string.isRequired,
 	itemSelected: PropTypes.func.isRequired,
+	items: PropTypes.array,
 };
 
 export default Dropdown;

@@ -1,3 +1,5 @@
+@import '../../../styles/variables';
+
 .containter {
 	width: 100%;
 	display: flex;
@@ -58,6 +60,8 @@
 
 .averageByBlock {
 	font-family: 'averta';
+	height: 30px;
+	font-size: 12px;
 	margin-left: 50px;
 	width: 20%;
 	display: flex;
@@ -65,6 +69,13 @@
 }
 
 .averageByBlock strong {
-	font-size: 30px;
+	font-size: 24px;
 	font-weight: normal;
+}
+
+.loadingBar {
+	background-color: $PurplePrimary;
+	z-index: 1;
+	order: 0;
+	height: 2px;
 }

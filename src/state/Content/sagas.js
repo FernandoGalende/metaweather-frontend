@@ -1,12 +1,14 @@
-import { put } from 'redux-saga/effects';
+import {put} from 'redux-saga/effects';
 
+import {showLoading, hideLoading} from 'react-redux-loading-bar';
 import * as actionTypes from './actionTypes';
 import * as contentActions from './actionCreators';
-import { content as contentAPI, sendError } from '../../api';
+import {content as contentAPI, sendError} from '../../api';
 
-function* getWeatherSaga({ payload }) {
+function* getWeatherSaga({payload}) {
 	const city = payload.content;
 	try {
+		yield put(showLoading());
 		const cityPayload = yield contentAPI.getCode(city);
 		const cityCode = cityPayload[0] && cityPayload[0].woeid ? cityPayload[0].woeid : null;
 		if (cityCode) {
@@ -20,12 +22,12 @@ function* getWeatherSaga({ payload }) {
 			};
 			yield put(contentActions.setWeather(result));
 		} else {
-			// throw toater no messages
+			throw new Error('City no valid');
 		}
 	} catch (error) {
 		sendError(error.message, error.stack);
 	} finally {
-		// put loadin off
+		yield put(hideLoading());
 	}
 }
 
