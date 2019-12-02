@@ -1,7 +1,70 @@
-.cardContainer {
-	height: 100vh;
+.container {
+	font-family: 'averta';
+	font-size: 25px;
+	height: 50vh;
 	width: 100vw;
 	display: flex;
-	justify-content: space-around;
 	align-items: center;
+	justify-content: flex-end;
+	flex-direction: column;
+}
+
+.linkContainer {
+	font-family: 'averta';
+	width: 50vw;
+	display: flex;
+	justify-content: space-around;
+	align-items: flex-start;
+	margin-top: 50px;
+	animation: fadein 1s steps(44) 2300ms 1 normal both;
+	a {
+		text-decoration: none;
+		color: black;
+	}
+	a:hover {
+		cursor: pointer;
+		font-weight: 600;
+	}
+}
+
+@keyframes fadein {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+.line {
+	position: relative;
+	margin: 0 auto;
+	border-right: 1px solid rgba(255, 255, 255, .75);
+	font-size: 90%;
+	text-align: center;
+	white-space: nowrap;
+	overflow: hidden;
+	transform: translateY(0%);
+}
+
+.typewriter {
+	animation: typewriter 3s steps(44) 0s 1 normal both, blinkTextCursor 1000ms steps(44) infinite;
+}
+
+@keyframes typewriter {
+	from {
+		width: 0;
+	}
+	to {
+		width: 1000px;
+	}
+}
+
+@keyframes blinkTextCursor {
+	from {
+		border-right-color: rgba(255, 255, 255, .75);
+	}
+	to {
+		border-right-color: transparent;
+	}
 }
