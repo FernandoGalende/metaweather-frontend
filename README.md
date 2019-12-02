@@ -6,6 +6,9 @@ This app is build with create-react-app.
 
 And then you can run this app.
 `npm install`
+
+** Please do not forget add a CORS extension tool to your browser! **
+
 `npm run start`
 
 If you navigate to http://localhost:3000 you can enjoy this app.
