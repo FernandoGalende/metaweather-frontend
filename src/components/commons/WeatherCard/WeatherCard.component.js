@@ -3,15 +3,13 @@ import PropTypes from 'prop-types';
 
 import style from './WeatherCard.module.scss';
 
-const WeatherCard = ({ city, weather, temperature, img, onClose }) => {
-	const handleClose = () => onClose(city);
+const WeatherCard = ({city, weather, temperature, img}) => {
 	return (
 		<div className={style.cardContainer}>
 			<span>{city}</span>
 			<span>{weather}</span>
 			<span>{temperature}º</span>
-			<img alt={city} src={img} style={{ width: '20px', height: 'auto' }} />
-			<button onClick={handleClose}>x</button>
+			<img alt={city} src={img} style={{width: '20px', height: 'auto'}} />
 		</div>
 	);
 };
@@ -19,7 +17,6 @@ const WeatherCard = ({ city, weather, temperature, img, onClose }) => {
 WeatherCard.defaultProps = {
 	city: '',
 	img: '',
-	onClose: () => 0,
 	temperature: 0,
 	weather: '',
 };
@@ -29,7 +26,6 @@ WeatherCard.propTypes = {
 	img: PropTypes.string,
 	temperature: PropTypes.number,
 	weather: PropTypes.string,
-	onClose: PropTypes.func,
 };
 
 export default WeatherCard;
