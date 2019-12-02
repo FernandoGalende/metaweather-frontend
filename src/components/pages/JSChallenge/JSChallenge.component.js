@@ -31,8 +31,14 @@ const JSChallenge = ({getWeather, cities, errorMessage, resetErrorMessage}) => {
 		[average, cities],
 	);
 
+	const resetSelects = () => {
+		document.getElementsByTagName('select')[0].value = 'none';
+		document.getElementsByTagName('select')[1].value = 'all';
+	};
+
 	const setAverageTemperature = (cityList) => {
-		setAverage(cityList.reduce((total, item) => total + item.temperature, 0) / cityList.length);
+		const degrees = cityList.reduce((total, item) => total + item.temperature, 0) / cityList.length;
+		setAverage(Math.round(degrees));
 	};
 
 	const makeUniqueList = (list) => {
@@ -55,6 +61,7 @@ const JSChallenge = ({getWeather, cities, errorMessage, resetErrorMessage}) => {
 		event.target.value = '';
 		mainInput.value = '';
 		resetErrorMessage();
+		resetSelects();
 		getWeather(city);
 	};
 
