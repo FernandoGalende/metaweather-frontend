@@ -1,9 +1,13 @@
-import axios from 'axios';
-import { handlingResponse, logError } from './utils';
+export const handlingError = (successStatus = [200], errorMessage = 'Error') => {
+	if (!successStatus) {
+		const error = new Error(errorMessage);
+		error.statusCode = error.status;
+		throw error;
+	}
+};
 
-const sendError = (error, info) => axios.post('/ui/error',
-  { error, info })
-  .then(handlingResponse([200], 'Error trying to send Error'))
-  .catch(logError);
-
-export default sendError;
+export const logError = (error) => {
+	// eslint-disable-next-line no-console
+	console.error('ERROR: ', error);
+	throw error;
+};

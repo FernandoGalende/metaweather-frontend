@@ -1,16 +1,14 @@
 import axios from 'axios';
-import { handlingResponse, logError } from './utils';
+import {handlingError, logError} from './errorAPI';
 
-export const getCode = (city) =>
-	axios
+export const getCode = (city) => axios
 		.get('https://www.metaweather.com/api/location/search/', {
-			params: { query: city },
+			params: {query: city},
 		})
-		.then(handlingResponse([ 200 ], 'Error trying to get members'))
+		.then(handlingError([200], 'Error trying to get code'))
 		.catch(logError);
 
-export const getWheather = (code) =>
-	axios
+export const getWheather = (code) => axios
 		.get(`https://www.metaweather.com/api/location/${code}`)
-		.then(handlingResponse([ 200 ], 'Error trying to get members'))
+		.then(handlingError([200], 'Error trying to get wheather'))
 		.catch(logError);

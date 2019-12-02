@@ -7,7 +7,7 @@ import style from './JSChallenge.module.scss';
 
 const sortByItems = [{value: 'ascending'}, {value: 'descending'}, {value: 'none'}];
 
-const JSChallenge = ({getWeather, cities}) => {
+const JSChallenge = ({getWeather, cities, errorMessage, resetErrorMessage}) => {
 	const [city, setCity] = useState();
 	const [myCities, setMyCities] = useState([...cities]);
 	const [mainInput, setMainInput] = useState('');
@@ -54,6 +54,7 @@ const JSChallenge = ({getWeather, cities}) => {
 		event.preventDefault();
 		event.target.value = '';
 		mainInput.value = '';
+		resetErrorMessage();
 		getWeather(city);
 	};
 
@@ -80,11 +81,14 @@ const JSChallenge = ({getWeather, cities}) => {
 			<div className={style.containter}>
 				<div className={style.searchBlock}>
 					<form onSubmit={onClickSearch}>
-						<input
-							ref={(ref) => setMainInput(ref)}
-							placeholder="Add city by name"
-							onChange={(evt) => setCity(evt.target.value)}
-						/>
+						<div className={style.searchBarWrap}>
+							<input
+								ref={(ref) => setMainInput(ref)}
+								placeholder="Add city by name"
+								onChange={(evt) => setCity(evt.target.value)}
+							/>
+							{errorMessage !== '' && <span>{errorMessage}</span>}
+						</div>
 						<button onClick={onClickSearch}>Search</button>
 					</form>
 				</div>
@@ -121,12 +125,16 @@ const JSChallenge = ({getWeather, cities}) => {
 
 JSChallenge.defaultProps = {
 	cities: [],
+	errorMessage: '',
 	getWeather: () => 0,
+	resetErrorMessage: () => 0,
 };
 
 JSChallenge.propTypes = {
 	getWeather: PropTypes.func.isRequired,
 	cities: PropTypes.array,
+	errorMessage: PropTypes.string,
+	resetErrorMessage: PropTypes.func,
 };
 
 export default JSChallenge;

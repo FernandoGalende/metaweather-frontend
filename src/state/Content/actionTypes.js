@@ -1,2 +1,4 @@
 export const GET_WEATHER = 'GET_WEATHER';
 export const SET_WEATHER = 'SET_WEATHER';
+export const SET_ERROR_MESSAGE = 'SET_ERROR_MESSAGE';
+export const RESET_ERROR_MESSAGE = 'RESET_ERROR_MESSAGE';

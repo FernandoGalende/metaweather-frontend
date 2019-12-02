@@ -3,7 +3,7 @@ import {put} from 'redux-saga/effects';
 import {showLoading, hideLoading} from 'react-redux-loading-bar';
 import * as actionTypes from './actionTypes';
 import * as contentActions from './actionCreators';
-import {content as contentAPI, sendError} from '../../api';
+import {content as contentAPI, handlingError} from '../../api';
 
 function* getWeatherSaga({payload}) {
 	const city = payload.content;
@@ -22,10 +22,11 @@ function* getWeatherSaga({payload}) {
 			};
 			yield put(contentActions.setWeather(result));
 		} else {
-			throw new Error('City no valid');
+			yield put(contentActions.setErrorMessage('Invalid city name'));
 		}
 	} catch (error) {
-		sendError(error.message, error.stack);
+		console.log('hola catch', error.stack);
+		handlingError(error);
 	} finally {
 		yield put(hideLoading());
 	}

@@ -43,6 +43,7 @@
 			"error",
 			"always"
 		],
+		"no-shadow": "off",
 		"function-paren-newline": "warn",
 		"implicit-arrow-linebreak": "warn",
 		"import/no-cycle": "error",
