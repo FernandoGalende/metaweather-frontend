@@ -4,7 +4,7 @@ This app is build with create-react-app.
 
 ## Run the project in local mode
 
-And then you can run our app.
+And then you can run this app.
 `npm install`
 `npm run start`
 
