@@ -8,6 +8,7 @@
 	background-color: white;
 	box-sizing: border-box;
 	padding: 16px;
+	box-shadow: $CardShadow;
 }
 
 .searchBlock {
@@ -27,6 +28,11 @@
 	padding-left: 12px;
 	width: 320px;
 }
+.searchBlock input:focus {
+	outline: none !important;
+	border: 1px solid $BluePrimary;
+	box-shadow: 0 0 5px $BluePrimary;
+}
 
 .searchBlock button {
 	font-family: 'averta';
@@ -35,6 +41,11 @@
 	background-color: white !important;
 	border-color: grey;
 	width: 20%;
+}
+.searchBlock button:focus {
+	outline: none !important;
+	border: 1px solid $BluePrimary;
+	box-shadow: 0 0 5px $BluePrimary;
 }
 
 .searchBarWrap {
