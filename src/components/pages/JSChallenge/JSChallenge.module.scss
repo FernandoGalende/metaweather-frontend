@@ -1,8 +1,37 @@
-.formContainter {
+.containter {
 	width: 100%;
 	display: flex;
-	justify-content: center;
+	justify-content: space-between;
 	align-items: center;
+	background-color: white;
+	box-sizing: border-box;
+	padding: 16px;
+}
+
+.searchBlock {
+	width: 30%;
+}
+
+.searchBlock form {
+	height: 100px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.searchBlock input {
+	height: 30px;
+	font-family: 'averta';
+	padding-left: 12px;
+	width: 100%;
+}
+
+.searchBlock button {
+	font-family: 'averta';
+	height: 35px;
+	margin-left: 1px;
+	background-color: white !important;
+	border-color: grey;
 }
 
 .resultContainer {
@@ -12,4 +41,30 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+}
+
+.orderByBlock {
+	margin-left: 50px;
+	width: 20%;
+	display: flex;
+	align-items: center;
+}
+
+.orderByBlock > span {
+	font-family: 'averta';
+	font-size: 12px;
+	margin-right: 5px;
+}
+
+.averageByBlock {
+	font-family: 'averta';
+	margin-left: 50px;
+	width: 20%;
+	display: flex;
+	align-items: center;
+}
+
+.averageByBlock strong {
+	font-size: 30px;
+	font-weight: normal;
 }
