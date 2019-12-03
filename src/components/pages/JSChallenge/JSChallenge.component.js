@@ -66,7 +66,7 @@ const JSChallenge = ({getWeather, cities, errorMessage, resetErrorMessage}) => {
 	};
 
 	const sortTemperture = (order) => {
-		const sortedCities = [...cities];
+		const sortedCities = [...myCities];
 		if (order === 'ascending') {
 			setMyCities(sortedCities.sort((a, b) => a.temperature - b.temperature));
 		} else if (order === 'descending') {
