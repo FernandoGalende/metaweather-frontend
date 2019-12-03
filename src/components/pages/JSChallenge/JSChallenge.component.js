@@ -22,13 +22,20 @@ const JSChallenge = ({getWeather, cities, errorMessage, resetErrorMessage}) => {
 				]);
 				setWeathers(makeUniqueList(weatherList));
 			};
-			if (cities.length > 0) {
-				setAverageTemperature(cities);
-			}
+
 			setWeathersList(cities);
 			setMyCities(cities);
 		},
-		[average, cities],
+		[cities],
+	);
+
+	useEffect(
+		() => {
+			if (cities.length > 0) {
+				setAverageTemperature(myCities);
+			}
+		},
+		[myCities, average],
 	);
 
 	const resetSelects = () => {
@@ -62,6 +69,7 @@ const JSChallenge = ({getWeather, cities, errorMessage, resetErrorMessage}) => {
 		mainInput.value = '';
 		resetErrorMessage();
 		resetSelects();
+		setAverage(0);
 		getWeather(city);
 	};
 
